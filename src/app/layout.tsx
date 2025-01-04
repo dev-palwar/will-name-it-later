@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Reelink",
-  description: "Movies and Tv show shelf",
+  title: "idk",
+  description: "i dont wanna tell",
 };
 
 export default function RootLayout({
