@@ -44,8 +44,10 @@ body {
   }
 
   .fit-media {
-    @apply h-[100%] w-[100%] object-cover
+    @apply h-[100%] w-[100%] object-cover;
   }
 
-
+  .full-section {
+    @apply h-[100vh] w-[100vw] flex justify-center items-center relative;
+  }
 }
