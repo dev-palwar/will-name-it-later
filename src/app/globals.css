@@ -39,8 +39,12 @@ body {
 }
 
 @layer utilities {
-  .center {
+  .row-center {
     @apply flex justify-center items-center;
+  }
+
+  .col-center {
+    @apply flex flex-col justify-center items-center;
   }
 
   .fit-media {
@@ -48,6 +52,6 @@ body {
   }
 
   .full-section {
-    @apply h-[100vh] w-[100vw] flex justify-center items-center relative;
+    @apply w-[100vw] flex justify-center items-center relative;
   }
 }
