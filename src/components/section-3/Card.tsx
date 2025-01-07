@@ -2,11 +2,14 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface Props {
   heading?: string;
   description?: string;
   video?: string;
+  image?: StaticImport;
   dontStopPlaying?: boolean;
 }
 
@@ -71,9 +74,16 @@ const Card: React.FC<Props> = (props) => {
             loop
             className="absolute fit-media"
           />
+        ) : props.image ? (
+          <Image
+            src={props.image}
+            alt=""
+            className="rounded absolute h-full w-full object-contain"
+          />
         ) : (
-          <div className="bg-violet-500 absolute fit-media"> </div>
+          <div className="bg-violet-500 absolute fit-media"></div>
         )}
+
         <div className="heading relative w-[40%] p-4">
           <h1 className="uppercase text-[2.5rem] font-bold">{props.heading}</h1>
           <p>{props.description}</p>

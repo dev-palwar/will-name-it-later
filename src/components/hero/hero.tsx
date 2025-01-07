@@ -23,7 +23,7 @@ const Hero = () => {
 
   return (
     <motion.div style={{ clipPath }}>
-      <div className="h-[100vh]">
+      <div className="h-[100vh] mb-4">
         <video
           src={videos[(selectedVideoNumber + 1) % videos.length].video}
           muted
@@ -34,7 +34,7 @@ const Hero = () => {
 
         <div className="relative dark-layer fit-media col-center bg-[#00000080] z-10">
           <div
-            style={{ border: "2px solid white" }}
+            // style={{ border: "2px solid white" }}
             className="heading fit-media absolute top-0 left-0 flex flex-col justify-between"
           >
             {" "}
