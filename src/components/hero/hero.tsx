@@ -38,7 +38,7 @@ const Hero = () => {
             className="heading fit-media absolute top-0 left-0 flex flex-col justify-between"
           >
             {" "}
-            <div className="ml-2 headings text-white capitalize  font-general">
+            <div className="ml-2 headings p-8 text-white capitalize  font-general">
               <h1 className="uppercase text-[8rem] font-bold ">redefine</h1>
               <div className="ml-2">
                 <p className="font-semibold">Enter the metagame </p>
@@ -54,7 +54,7 @@ const Hero = () => {
                 </Button>
               </div>
             </div>
-            <div className="text-white text-end mr-2">
+            <div className="text-white text-end mr-2 p-2">
               <h1 className="uppercase text-[8rem] text-[palegoldenrod] font-bold">
                 gaming
               </h1>

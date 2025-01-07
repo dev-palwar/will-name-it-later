@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Section2 />
+      {/* <Section2 /> */}
       <Section3 />
     </>
   );

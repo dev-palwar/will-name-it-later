@@ -1,30 +1,48 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const Card = () => {
+interface Props {
+  heading?: string;
+  description?: string;
+  video?: string;
+  dontStopPlaying?: boolean;
+}
+
+const Card: React.FC<Props> = (props) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleMouseMove = (event: React.MouseEvent) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10; // Reduced scale factor for smoother motion
-    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 10; // Reduced scale factor for smoother motion
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 10;
     setMousePosition({ x, y });
+  };
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
   };
 
   const handleMouseLeave = () => {
     setMousePosition({ x: 0, y: 0 });
+    if (!props.dontStopPlaying && videoRef.current) {
+      videoRef.current.pause();
+    }
   };
 
   return (
     <motion.div
-      className="cursor-pointer  card h-[60vh] relative rounded-2xl overflow-hidden border-1"
+      className="card w-full h-full relative rounded-2xl overflow-hidden border-1 cursor-grab"
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: 1000 }}
       initial={{ scale: 1 }}
-      whileHover={{ scale: 0.95 }} // Pressed effect on hover
+      whileHover={{ scale: 0.95 }}
       transition={{
         type: "spring",
         stiffness: 150,
@@ -42,23 +60,23 @@ const Card = () => {
         transition={{
           type: "spring",
           stiffness: 50,
-          damping: 10, // Slower, smoother motion
+          damping: 10,
         }}
       >
-        <video
-          src="videos/feature-1.mp4"
-          autoPlay
-          muted
-          loop
-          className="absolute fit-media"
-        />
+        {props.video ? (
+          <video
+            ref={videoRef}
+            src={props.video}
+            muted
+            loop
+            className="absolute fit-media"
+          />
+        ) : (
+          <div className="bg-violet-500 absolute fit-media"> </div>
+        )}
         <div className="heading relative w-[40%] p-4">
-          <h1 className="uppercase text-2xl font-bold">radiant</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            eius at placeat, dolorum earum temporibus? Numquam suscipit
-            temporibus ex illum.
-          </p>
+          <h1 className="uppercase text-[2.5rem] font-bold">{props.heading}</h1>
+          <p>{props.description}</p>
         </div>
       </motion.div>
     </motion.div>
