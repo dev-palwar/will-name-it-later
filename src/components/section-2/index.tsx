@@ -35,7 +35,7 @@ const Section2 = () => {
   const width = useTransform(scrollYProgress, [0, 1], [25, viewport.width]); // From 25px to full viewport width
 
   return (
-    <div className="flex flex-col gap-11 mt-20">
+    <div className="flex flex-col gap-11 mt-20 mb-10">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
