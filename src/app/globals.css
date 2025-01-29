@@ -11,6 +11,32 @@ body {
   font-family: "General Sans", sans-serif;
 }
 
+.responsiveness-alert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1562px) {
+  .fullscreen-text-1562 {
+    display: flex;
+  }
+}
+
+@media (max-width: 844px) {
+  .fullscreen-text-844 {
+    display: flex;
+  }
+}
+
 @layer base {
   @font-face {
     font-family: "circular-web";
