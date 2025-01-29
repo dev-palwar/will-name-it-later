@@ -47,7 +47,6 @@ const Footer: React.FC = () => {
 
           const skewX = (mouseX / width - 0.5) * 10;
           const skewY = (mouseY / height - 0.5) * 10;
-          const scaleX = 1 + (mouseX / width - 0.5) * 0.5;
           const scaleY = 1 + (mouseY / height - 0.5) * 0.5;
 
           e.currentTarget.style.transform = `skewX(${skewX}deg) skewY(${skewY}deg) scaleY(${scaleY})`;
