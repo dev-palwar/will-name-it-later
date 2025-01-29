@@ -13,8 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "idk",
-  description: "i dont wanna tell",
+  title: "Zentry clone",
 };
 
 export default function RootLayout({
